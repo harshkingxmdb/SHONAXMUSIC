@@ -104,7 +104,7 @@
     "queue_fetching": "Fetching queue...",
     "restarting": "Restarting...",
     "restarted": "Restart in progress. Don't worry, it'll only take a few seconds… maybe.",
-    "start_pm": "<blockquote>Hyy {0}\n<b>{1} [No Ads]</b>\nHigh Quality Streaming\n\n🎵 <b>{1} Features:</b>\n\n• Unlimited Free Music Streaming\n• High Quality Audio\n• Download & Listen Offline\n• Curated Top Charts & Trending Hits\n• Ad-Free Premium Experience\n\nStart Listening Now</b></blockquote>",
+    "start_pm": "<blockquote>Hyy {0}\n<b>{1} [No Ads]</b>\nHigh Quality Streaming</blockquote>\n\n<blockquote>🎵 <b>{1} Features:</b>\n\n• Unlimited Free Music Streaming\n• High Quality Audio\n• Download & Listen Offline\n• Curated Top Charts & Trending Hits\n• Ad-Free Premium Experience\n\nStart Listening Now</blockquote>",
     "start_gp": "Hey,\nThis is {0}\n\n<u><b>A music player bot with some awesome and useful features.</b></u>",
     "start_settings": "<u><b>{0} settings</b></u>\n\nClick the buttons below to change this chat's current settings.",
     "stats_fetching": "Fetching stats...",
