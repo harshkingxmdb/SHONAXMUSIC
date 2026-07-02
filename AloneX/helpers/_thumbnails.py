@@ -112,7 +112,7 @@ class Thumbnail:
                 self.height
                 - self.album_size
             ) // 2
-                      album = img.resize(
+            album = img.resize(
                 (
                     self.album_size,
                     self.album_size,
@@ -261,7 +261,7 @@ class Thumbnail:
                 font=self.font_small,
                 fill=(180, 180, 180),
             )
-                      # Progress Bar
+            # Progress Bar
             bar_x = text_x
             bar_y = frame_y + 320
             bar_width = 500
