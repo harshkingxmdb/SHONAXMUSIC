@@ -337,5 +337,8 @@ class Thumbnail:
 
             return output
 
-        except Exception:
+        except Exception as e:
+            import traceback
+            print(f"[Thumbnail Error] {e}")
+            traceback.print_exc()
             return config.DEFAULT_THUMB
