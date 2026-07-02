@@ -1,3 +1,8 @@
+# Copyright (c) 2025 TeamshonaX
+# Licensed under the MIT License.
+# This file is make by @theshonabots
+#SHONA - BOTS
+
 import os
 import aiohttp
 
