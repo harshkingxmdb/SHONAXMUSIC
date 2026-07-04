@@ -43,4 +43,3 @@ async def _autoplay(_, m: types.Message):
         return await m.reply_text(
             m.lang.get("autoplay_usage", "Usage: /autoplay [on|off]")
         )
-          
