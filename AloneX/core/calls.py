@@ -157,11 +157,37 @@ class TgCall(PyTgCalls):
 
         if not media:
             if current and isinstance(current, Track) and await db.get_autoplay(chat_id):
-                related = await yt.get_related(current.id, self.history[chat_id])
+                _lang = await lang.get_lang(chat_id)
+                notice = await app.send_message(
+                    chat_id=chat_id,
+                    text=_lang.get(
+                        "autoplay_searching",
+                        "🔎 Queue is empty — Autoplay is searching for a related song...",
+                    ),
+                )
+                try:
+                    related = await yt.get_related(current, self.history[chat_id])
+                except Exception as e:
+                    logger.error(f"[Autoplay] Unexpected error for chat {chat_id}: {e}")
+                    related = None
+
+                try:
+                    await notice.delete()
+                except:
+                    pass
+
                 if related:
                     related.user = "Autoplay"
                     queue.add(chat_id, related)
                     media = queue.get_current(chat_id)
+                else:
+                    await app.send_message(
+                        chat_id=chat_id,
+                        text=_lang.get(
+                            "autoplay_failed",
+                            "⚠️ Autoplay couldn't find a related song to play next, so the stream has ended.",
+                        ),
+                    )
 
             if not media:
                 return await self.stop(chat_id)
@@ -208,3 +234,4 @@ class TgCall(PyTgCalls):
             self.clients.append(client)
             await self.decorators(client)
         logger.info("PyTgCalls client(s) started.")
+      
