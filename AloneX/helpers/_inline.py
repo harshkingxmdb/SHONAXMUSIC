@@ -79,7 +79,7 @@ class Inline:
                 ]
             ]
         else:
-            cbs = ["admins", "auth", "blist", "lang", "ping", "play", "queue", "stats", "sudo", "autoplay"]
+            cbs = ["admins", "auth", "blist", "lang", "ping", "play", "queue", "stats", "sudo", "autoplay", "vclogger"]
             buttons = [
                 self.ikb(text=_lang[f"help_{i}"], callback_data=f"help {cb}", style=ButtonStyle.PRIMARY)
                 for i, cb in enumerate(cbs)
@@ -179,24 +179,27 @@ class Inline:
                     url=f"https://t.me/{app.username}?startgroup=true", style=ButtonStyle.PRIMARY
                 )
             ],
-            [self.ikb(text=lang["help"], callback_data="help", style=ButtonStyle.PRIMARY)],
-            [
-                self.ikb(text=lang["support"], url=config.SUPPORT_CHAT, style=ButtonStyle.SUCCESS),
-                self.ikb(text=lang["channel"], url=config.SUPPORT_CHANNEL, style=ButtonStyle.SUCCESS),
-            ],
+            [self.ikb(text=lang["help"], callback_data="help", style=ButtonStyle.DANGER)],
         ]
         if private:
             rows += [
                 [
-                    self.ikb(text=lang["aloneowner"], url=config.OWNER_USERNAME, style=ButtonStyle.DANGER),
+                    self.ikb(text=lang["aloneowner"], url=config.OWNER_USERNAME, style=ButtonStyle.SUCCESS),
+                    self.ikb(text=lang["channel"], url=config.SUPPORT_CHANNEL, style=ButtonStyle.SUCCESS),
                     self.ikb(
                         text=lang["source"],
-                        url="https://github.com/TeamShonax/ShonaX", style=ButtonStyle.DANGER
-                    )
+                        url="https://github.com/TeamShonax/ShonaX", style=ButtonStyle.SUCCESS
+                    ),
                 ]
             ]
         else:
-            rows += [[self.ikb(text=lang["language"], callback_data="language")]]
+            rows += [
+                [
+                    self.ikb(text=lang["support"], url=config.SUPPORT_CHAT, style=ButtonStyle.SUCCESS),
+                    self.ikb(text=lang["channel"], url=config.SUPPORT_CHANNEL, style=ButtonStyle.SUCCESS),
+                ],
+                [self.ikb(text=lang["language"], callback_data="language")],
+            ]
         return self.ikm(rows)
 
     def yt_key(self, link: str) -> types.InlineKeyboardMarkup:
