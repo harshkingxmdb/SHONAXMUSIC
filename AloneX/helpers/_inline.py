@@ -74,6 +74,7 @@ class Inline:
             rows = [
                 [
                     self.ikb(text=_lang["back"], callback_data="help back", style=ButtonStyle.PRIMARY),
+                    self.ikb(text=_lang.get("home_btn", "🏠 Home"), callback_data="help home", style=ButtonStyle.SUCCESS),
                     self.ikb(text=_lang["close"], callback_data="help close", style=ButtonStyle.DANGER),
                 ]
             ]
@@ -86,7 +87,7 @@ class Inline:
             rows = [buttons[i : i + 3] for i in range(0, len(buttons), 3)]
             rows.append(
                 [
-                    self.ikb(text=_lang["back"], callback_data="help_back_start", style=ButtonStyle.PRIMARY),
+                    self.ikb(text=_lang.get("home_btn", "🏠 Home"), callback_data="help home", style=ButtonStyle.SUCCESS),
                     self.ikb(text=_lang["close"], callback_data="help close", style=ButtonStyle.DANGER),
                 ]
             )
