@@ -28,7 +28,7 @@ async def _vclogger(_, m: types.Message):
         return await m.reply_text(
             m.lang.get(
                 "vclogger_enabled",
-                "✅ VC Logger has been enabled.\n\nI'll now post a message whenever someone joins or leaves the video chat.",
+                "✅ VC Logger enabled.",
             )
         )
     elif mode in ("off", "disable"):
@@ -36,7 +36,7 @@ async def _vclogger(_, m: types.Message):
         return await m.reply_text(
             m.lang.get(
                 "vclogger_disabled",
-                "🚫 VC Logger has been disabled.\n\nJoin/leave notices will no longer be posted.",
+                "🚫 VC Logger disabled.",
             )
         )
     else:
