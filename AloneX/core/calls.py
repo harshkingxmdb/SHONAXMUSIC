@@ -245,8 +245,16 @@ class TgCall(PyTgCalls):
                     if not await db.get_vc_logger(update.chat_id):
                         return
 
-                    action = update.participant.action
-                    user_id = update.participant.user_id
+                    # `action` lives on the update itself; `user_id` lives on
+                    # update.participant. Fall back defensively in case this
+                    # differs across pytgcalls versions.
+                    action = getattr(update, "action", None)
+                    if action is None:
+                        action = getattr(update.participant, "action", None)
+
+                    user_id = getattr(update.participant, "user_id", None)
+                    if user_id is None:
+                        user_id = getattr(update, "user_id", None)
 
                     if action == types.GroupCallParticipant.Action.JOINED:
                         await vclogger.notify_join(update.chat_id, user_id)
