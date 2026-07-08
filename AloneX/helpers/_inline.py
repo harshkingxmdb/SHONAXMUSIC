@@ -54,8 +54,7 @@ class Inline:
             keyboard.append(
                 [
                     self.ikb(
-                        text=_lang.get("channel", "˹ 𝐔ᴘᴅᴧᴛєs ˼"),
-                        url=config.SUPPORT_CHANNEL,
+                        text=_lang.get("add_me", "✙ 𝐀ᴅᴅ 𝐌є "),
                         style=ButtonStyle.SUCCESS,
                     ),
                     self.ikb(
